@@ -4,10 +4,10 @@ import "./style.css";
 function FriendCard(props) {
   return (
     
-        <div className="wrapper">
-        <img alt={props.name} src={props.image} />
-        </div>
-    
+                
+            <img className="click-item" alt={props.name} src={props.image}/>
+       
+       
   );
 }
 

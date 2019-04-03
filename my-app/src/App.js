@@ -30,7 +30,9 @@ class App extends Component {
           <h1>Clicky Game!</h1>
           <h2>Click on an image to earn points, but don't click on any more than once!</h2>
         </Hero>
-        <Wrapper>
+        <div className="container">
+        <div className="row">
+        <div className="col col-xs-10 col-sm-10 col-md-10 col-lg-10 wrapper">
         {this.state.friends.map(friend => (
           <FriendCard
             removeFriend={this.removeFriend}
@@ -43,8 +45,9 @@ class App extends Component {
           />
          
         ))}
-         </Wrapper>
-     
+          </div>
+        </div>
+        </div>
       <Footer />
       </div>
     
