@@ -1,0 +1,40 @@
+.navbar{
+  margin-bottom: 0;
+  background-color: blueviolet!important;
+  padding:15px;
+}
+
+.navbar li {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+
+}
+.navbar a {
+  text-decoration: none;
+  color: #fff!important;
+  font-weight: 900!important;
+  font-size: 35px!important;
+  padding-left: 40px;
+}
+.msg2{
+padding-left: 200px;
+font-size: 35px!important;}
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .navbar li {font-size: 14px;padding-left: 20px;}
+  .navbar a {font-size: 14px;}
+  .msg2{
+    padding-left: 70px;
+    font-size: 14px!important;}
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {} 

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
+import Hero from "./components/Hero";
 import friends from "./friends.json";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
@@ -20,9 +22,15 @@ class App extends Component {
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
-      <Wrapper>
-        <Title>Friends List</Title>
+      
+        <div>
         
+        <Navbar />
+        <Hero backgroundImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVzA4Zx1YZ6irTMRo-e7Vw8AkqJYRYNT8miUTZusdt3QJN_mx8">
+          <h1>Clicky Game!</h1>
+          <h2>Click on an image to earn points, but don't click on any more than once!</h2>
+        </Hero>
+        <Wrapper>
         {this.state.friends.map(friend => (
           <FriendCard
             removeFriend={this.removeFriend}
@@ -33,9 +41,13 @@ class App extends Component {
             occupation={friend.occupation}
             location={friend.location}
           />
+         
         ))}
-       
-      </Wrapper>
+         </Wrapper>
+     
+      <Footer />
+      </div>
+    
     );
   }
 }

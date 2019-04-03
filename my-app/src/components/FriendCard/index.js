@@ -4,15 +4,9 @@ import "./style.css";
 function FriendCard(props) {
   return (
     
-    <div className="card">
-      <div className="img-container">
+        <div className="wrapper">
         <img alt={props.name} src={props.image} />
-      </div>
-      
-      <span onClick={() => props.removeFriend(props.id)} className="remove">
-        
-      </span>
-    </div>
+        </div>
     
   );
 }
