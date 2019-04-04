@@ -34,12 +34,15 @@
 }
 
 img{
-  width:200px!important;
-  height:200px!important;
+  width:170px!important;
+  height:170px!important;
   padding:10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0)
 }
 
+img:hover {
+  transform: scale(1.1);
+}
 .click-item {
   /*background-size: cover;
   background-position: 50%;
