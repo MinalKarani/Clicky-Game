@@ -64,7 +64,7 @@ class App extends Component {
                     message={this.state.message}
                     highscore={this.state.highscore}
                     />
-                <Hero>
+                <Hero backgroundImage="./assets/images/background.png">
                 
                            
                   <h1>Clicky Game!</h1>
