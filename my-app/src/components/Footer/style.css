@@ -1,6 +1,6 @@
 .footer {
   min-height: 100px;
-  background:blueviolet;
+  background:rgb(63, 24, 63)!important;
   position: relative;
 }
 
@@ -10,6 +10,7 @@
   left: 0;
   right: 0;
   padding: 3px;
-  background:blueviolet;
+  background:rgb(63, 24, 63)!important;
   text-align: center;
+  color:white;
 }

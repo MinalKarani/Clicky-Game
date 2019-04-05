@@ -4,9 +4,9 @@ import "./style.css";
 function FriendCard(props) {
   return (
     
-                
-            <img className="click-item" alt="Dogs" onClick={props.handleImageClick} src={props.image}/>
-       
+            <div onClick={() => props.selectFriend(props.id)}>
+              <img className="click-item" alt="Dogs"  src={props.image}/>
+            </div>
        
   );
 }

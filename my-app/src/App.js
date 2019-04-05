@@ -1,29 +1,47 @@
 import React, { Component } from "react";
 import FriendCard from "./components/FriendCard";
-import Wrapper from "./components/Wrapper";
 import Hero from "./components/Hero";
 import friends from "./friends.json";
 import Navbar from "./components/Navbar";
+import Wrapper from "./components/Wrapper";
 import Footer from "./components/Footer";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    friends,
-    count: 0
+    friends:friends,
+    score: 0,
+    highscore:0,
+    unselectedfriends: friends,
+    message:"Click an image to begin!"
   };
 
-  handleImageClick = () => {
-    this.setState({ count: this.state.count + 1 });
-    console.log("Count is: "+this.state.count);
+  selectFriend = id => {
+    //If an Image already clicked set Score back to 0
+    const findFriend = this.state.unselectedfriends.find(item => item.id === id);
+    console.log(findFriend);
+    if(findFriend === undefined) {
+      this.setState({
+        message: "You guessed incorrectly!",
+        highscore: (this.state.score > this.state.highscore) ? this.state.score : this.state.highscore,
+        score: 0,
+        friends: friends,
+        unselectedfriends: friends
+      })
+    }
+    else{
+      // If an Image is clicked increment Score by 1
+      const newFriends = this.state.unselectedfriends.filter(item => item.id !== id);            
+      this.setState({ 
+          message: "You guessed correctly!",
+          score: this.state.score + 1,
+          friends: friends,
+          unselectedfriends: newFriends
+      });
+    }
     this.shuffleArray();
-  };
-  removeFriend = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const friends = this.state.friends.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ friends });
-  };
+  }
+  
 
   //function to shuffle friends array
   shuffleArray = () => {
@@ -36,13 +54,19 @@ class App extends Component {
     
 }
   // Map over this.state.friends and render a FriendCard component for each friend object
+  
   render() {
     return (
       
         <div>
         
-            <Navbar score={this.state.count}/>
-                <Hero backgroundImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVzA4Zx1YZ6irTMRo-e7Vw8AkqJYRYNT8miUTZusdt3QJN_mx8">
+            <Navbar score={this.state.score} 
+                    message={this.state.message}
+                    highscore={this.state.highscore}
+                    />
+                <Hero>
+                
+                           
                   <h1>Clicky Game!</h1>
                   <h2>Click on an image to earn points, but don't click on any more than once!</h2>
                 </Hero>
@@ -51,11 +75,11 @@ class App extends Component {
                       <div className="col col-xs-10 col-sm-10 col-md-10 col-lg-10 wrapper">
                       {this.state.friends.map(friend => (
                             <FriendCard
-                              shuffleArray={this.shuffleArray}
+                             
                               id={friend.id}
                               key={friend.id}
                               image={friend.image}
-                              handleImageClick={this.handleImageClick}
+                              selectFriend={this.selectFriend}
                             />
                       
                       ))}
